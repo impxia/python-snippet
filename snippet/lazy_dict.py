@@ -37,7 +37,7 @@ def to_dict(lazy_object):
 
 
 class lazy_property(object):
-    """meant to be used for lazy evaluation of an object attribute.
+    """decorator for lazy evaluation of an object attribute.
     property should represent non-mutable data, as it replaces itself.
     """
 
@@ -53,7 +53,7 @@ class lazy_property(object):
         return value
 
 
-class LazyObject(object):
+class LazyDict(object):
     """Base class for lazy dictionary.
     Customize dictionary should extend this class and define its own property
     See test_lazy_dict for example

@@ -1,8 +1,8 @@
-from src.lazy_dict import LazyObject, lazy_property
+from snippet.lazy_dict import LazyDict, lazy_property
 from nose import tools
 
 
-class Book(LazyObject):
+class Book(LazyDict):
     def __init__(self, book_id):
         super(Book, self).__init__()
         self.id = book_id
@@ -28,7 +28,7 @@ class Book(LazyObject):
         return Review(self.id)
 
 
-class Review(LazyObject):
+class Review(LazyDict):
     def __init__(self, book_id):
         super(Review, self).__init__()
         self.id = book_id
@@ -49,7 +49,7 @@ class Review(LazyObject):
 def test():
     book = Book('book1 id')
     tools.eq_(len(book.__dict__), 2, 'Book should have only 2 properties, id and _subset')
-    author = book.author
+    author = book['author']
     tools.eq_(len(book.__dict__), 3, 'Book should have 1 more property, author')
     review = book.review
     tools.eq_(len(book.__dict__), 4, 'Book should have 1 more property, review')
