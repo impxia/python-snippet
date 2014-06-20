@@ -1,6 +1,3 @@
-__author__ = 'shuangxia'
-
-
 def get_structure(lazy_object):
     """Get lazy_object's structure by recursively getting attributes' key without evaluating their real value
     Args:
